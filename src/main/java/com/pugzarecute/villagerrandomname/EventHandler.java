@@ -12,6 +12,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.Random;
 
 @Mod.EventBusSubscriber(modid = VillagerRandomName.MODID,bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class EventHandler {
@@ -19,8 +20,8 @@ public class EventHandler {
     public static void onEntitySpawn(EntityJoinWorldEvent event){
         if(event.getEntity().getType() == EntityType.VILLAGER){
             if(!event.getEntity().hasCustomName()){
-                String[] nawme = {"Kritzkon","Raone","Fenris","Dolle","Synlek","Frank","Harold","Violager","Héloer",""};
-                ITextComponent name = ITextComponent.getTextComponentOrEmpty("UIEHFUIWE");
+                String[] nawme = {"Kritzkon","Raone","Fenris","Dolle","Synlek","Frank","Harold","Violager","Héloer","Grudolf","Absoleum","Namel","Emoni","Stonkinator V Jr.","Stonkinator V Sr.","Stickolm","Blocbran","Leprior","Wolfie","Tezmkan"};
+                ITextComponent name = ITextComponent.getTextComponentOrEmpty(nawme[new Random().nextInt(nawme.length)]);
                 //TODO: COLORS //name.getStyle().setColor()
                 event.getEntity().setCustomName(name);
             }
